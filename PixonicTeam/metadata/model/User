@@ -1,0 +1,83 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "user",
+        "designer|userClassName": "User"
+    },
+    "name": "MyModel",
+    "designerId": "5b903005-e4bb-4380-a53e-3e300b4527ca",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "email"
+            },
+            "name": "field",
+            "designerId": "7b5050b2-eb30-41e2-9507-8f731a33da8e"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "password"
+            },
+            "name": "field1",
+            "designerId": "4cded073-dd06-4c9d-a542-0f1cec60dfdf"
+        },
+        {
+            "type": "presencevalidation",
+            "reference": {
+                "name": "validations",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "field": "email"
+            },
+            "name": "MyPresenceValidation",
+            "designerId": "68362fb2-8ad2-4080-a2d4-5669c4ccdae7"
+        },
+        {
+            "type": "formatvalidation",
+            "reference": {
+                "name": "validations",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "field": "email",
+                "matcher": "/^\\w+([-+.']\\w+)*@pixonic.ru$/",
+                "message": "Wrong e-mail format. Try again"
+            },
+            "name": "MyFormatValidation",
+            "designerId": "364b02b5-28c7-453d-8811-7512780b932a"
+        },
+        {
+            "type": "presencevalidation",
+            "reference": {
+                "name": "validations",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "field": "password"
+            },
+            "name": "MyPresenceValidation1",
+            "designerId": "6f0129f3-50f6-45f0-a70e-aa46bbd2fa91"
+        }
+    ]
+}

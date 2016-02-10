@@ -1,0 +1,110 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "LoginController"
+    },
+    "name": "MyController",
+    "designerId": "d93f297e-995b-4f39-adff-f39e6e5855b1",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "loginBtn",
+                "selector": "#loginBtn"
+            },
+            "name": "loginBtn",
+            "designerId": "27a9ceb8-5fc8-45f3-abc2-1850942f5208"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "[action=confirm]",
+                "designer|targetType": "Ext.Button",
+                "fn": "onButtonTap",
+                "implHandler": [
+                    "var me = this;",
+                    "var name = me.getUsernameField().getValue();",
+                    "var pwd = me.getPasswordField().getValue();",
+                    "",
+                    "var usr = Ext.create('PixonicTeam.model.User',{",
+                    "    email: name + '@pixonic.ru',",
+                    "    password: pwd,",
+                    "});",
+                    "",
+                    "var errs = usr.validate();",
+                    "var msg = '';",
+                    "",
+                    "if (!errs.isValid()) {",
+                    "    errs.each(function (err) {",
+                    "        msg += err.getField() + ' : ' + err.getMessage() + '<br/>';",
+                    "    });",
+                    "}",
+                    "",
+                    "var errorLbl = me.getErrorLabel();",
+                    "errorLbl.setHtml(msg);",
+                    "handleAuthClick(e);"
+                ],
+                "name": "tap"
+            },
+            "name": "onButtonTap",
+            "designerId": "1c15fcaa-9c54-4d7c-8fb7-f150c2c59822"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "errorLabel",
+                "selector": "#loginErrorLabel"
+            },
+            "name": "errorLabel",
+            "designerId": "71f14454-ad10-47c0-9899-d52241fa79dc"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "usernameField",
+                "selector": "#emailField"
+            },
+            "name": "usernameField",
+            "designerId": "9c262219-635b-4a98-b2ad-4b89ce0477c5"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "passwordField",
+                "selector": "#passwordField"
+            },
+            "name": "passwordField",
+            "designerId": "e99419e1-13da-4e1a-8b71-fe93cb3e7155"
+        }
+    ]
+}

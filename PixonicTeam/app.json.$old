@@ -1,0 +1,86 @@
+{
+   "name": "PixonicTeam",
+   "indexHtmlPath": "index.html",
+   "url": null,
+   "js": [
+      {
+         "path": "touch/sencha-touch.js",
+         "x-bootstrap": true
+      },
+      {
+         "path": "bootstrap.js",
+         "x-bootstrap": true
+      },
+      {
+         "path": "cordova.js"
+      },
+      {
+         "path": "app/utils/Login.js"
+      },
+      {
+         "path": "app/utils/Login.js",
+         "x-compile": true
+      },
+      {
+         "path": "https://apis.google.com/js/client.js",
+         "x-compile": true
+      },
+      {
+         "path": "app.js",
+         "bundle": true,
+         "update": "delta"
+      }
+   ],
+   "builds": {
+      "web": {
+         "default": true
+      },
+      "native": {
+         "packager": "phonegap",
+         "phonegap": {
+            "config": {
+               "platform": "ios android",
+               "id": "com.pixonic.PixonicTeam",
+               "name": "PixonicTeam"
+            }
+         }
+      }
+   },
+   "css": [
+      {
+         "path": "style.css"
+      },
+      {
+         "update": "delta",
+         "platform": [
+            "phone",
+            "tablet",
+            "desktop"
+         ],
+         "theme": "Default",
+         "path": "resources/css/sencha-touch-546dd549-4ce5-4953-8988-d2f9201c0d21.css"
+      }
+   ],
+   "appCache": {
+      "cache": [
+         "index.html"
+      ],
+      "network": [
+         "*"
+      ],
+      "fallback": []
+   },
+   "resources": [
+      "resources/images",
+      "resources/icons",
+      "resources/startup",
+      "style.css"
+   ],
+   "ignore": [
+      ".svn$"
+   ],
+   "archivePath": "archive",
+   "requires": [],
+   "id": "7797aa18-e8d1-44f8-8cd4-39638ecec0ca",
+   "classpath": "${app.dir}/app,${app.dir}/app/utils/"
+}

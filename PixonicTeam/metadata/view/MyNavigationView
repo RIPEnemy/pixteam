@@ -1,0 +1,31 @@
+{
+    "type": "Ext.navigation.View",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "centered": false,
+        "designer|initialView": true,
+        "designer|userClassName": "MyNavigationView"
+    },
+    "name": "MyNavigationView",
+    "designerId": "667a5844-c4ba-4328-93de-cd1ebe357616",
+    "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Pixonic Team"
+            },
+            "name": "loginpanel1",
+            "designerId": "b6200b57-d915-4e8c-a6c3-c1581fda6068",
+            "masterInstanceId": "89bd62e7-3be4-415f-aea0-2462cd163b70"
+        }
+    ]
+}

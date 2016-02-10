@@ -1,0 +1,16 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "defer": false,
+        "designer|userClassName": "js_snz2kxmm",
+        "url": "https://apis.google.com/js/client.js",
+        "x-compile": true
+    },
+    "name": "js",
+    "designerId": "d4c04a32-a1f6-458b-b3bf-d8cff9db89a3"
+}

@@ -1,0 +1,14 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "css_j5aprlrk",
+        "url": "style.css"
+    },
+    "name": "css",
+    "designerId": "520c148e-cbcc-4a34-9c3e-77f0e1d378e7"
+}

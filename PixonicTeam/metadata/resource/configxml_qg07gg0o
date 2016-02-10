@@ -1,0 +1,14 @@
+{
+    "type": "configxmlresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "configxml_qg07gg0o",
+        "url": "phonegap/config.xml"
+    },
+    "name": "configxml",
+    "designerId": "3a12f3a8-2bff-4434-806a-29876285b613"
+}
