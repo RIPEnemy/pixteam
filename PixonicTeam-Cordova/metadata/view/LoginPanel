@@ -1,0 +1,126 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "loginPanel",
+        "designer|userClassName": "LoginPanel"
+    },
+    "name": "MyFormPanel",
+    "designerId": "89bd62e7-3be4-415f-aea0-2462cd163b70",
+    "cn": [
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "baseCls": null,
+                "id": "loginPanel",
+                "title": "Welcome to Pixonic Team!"
+            },
+            "name": "MyFieldSet1",
+            "designerId": "28666942-f1a6-4d7c-b127-95e3905c73f1",
+            "cn": [
+                {
+                    "type": "Ext.field.Email",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "emailField",
+                        "label": "@pixonic.ru",
+                        "labelAlign": "right",
+                        "labelWidth": "41%",
+                        "placeHolder": "email"
+                    },
+                    "name": "MyEmailField",
+                    "designerId": "3748a482-0558-4a63-8c6b-d0c3af2003bf"
+                },
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "passwordField",
+                        "label": "",
+                        "name": "Password",
+                        "required": true
+                    },
+                    "name": "MyTextField1",
+                    "designerId": "1522c8d7-320e-4604-9bf2-ff7047350a10"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "center",
+                "height": "100px",
+                "layout": "vbox"
+            },
+            "name": "MyContainer",
+            "designerId": "fea4dafa-0390-4dde-b13c-26e2dfda2def",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "action": "confirm",
+                        "centered": true,
+                        "docked": null,
+                        "id": "loginBtn",
+                        "text": "Login",
+                        "width": "200px"
+                    },
+                    "name": "MyButton",
+                    "designerId": "7b0ea43c-0c31-4459-a337-9f66e0ac4d72",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "action",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cls": [
+                            "x-label-error"
+                        ],
+                        "height": "40 px",
+                        "html": "web",
+                        "id": "loginErrorLabel"
+                    },
+                    "name": "MyLabel",
+                    "designerId": "1ecf953a-4897-46fb-9110-c24dcec6a303"
+                }
+            ]
+        }
+    ]
+}
