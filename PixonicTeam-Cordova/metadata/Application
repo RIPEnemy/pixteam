@@ -14,8 +14,7 @@
         ],
         "name": "PixonicTeam",
         "views": [
-            "MyNavigationView",
-            "LoginPanel"
+            "MyNavigationView"
         ]
     },
     "name": "Application",

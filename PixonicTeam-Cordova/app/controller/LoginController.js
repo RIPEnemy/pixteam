@@ -19,9 +19,7 @@ Ext.define('PixonicTeam.controller.LoginController', {
     config: {
         refs: {
             loginBtn: '#loginBtn',
-            errorLabel: '#loginErrorLabel',
-            usernameField: '#emailField',
-            passwordField: '#passwordField'
+            errorLabel: '#loginErrorLabel'
         },
 
         control: {
@@ -32,27 +30,6 @@ Ext.define('PixonicTeam.controller.LoginController', {
     },
 
     onButtonTap: function(button, e, eOpts) {
-
-        var name = this.getUsernameField().getValue();
-        var pwd = this.getPasswordField().getValue();
-
-        var usr = Ext.create('PixonicTeam.model.User',{
-            email: name + '@pixonic.ru',
-            password: pwd,
-        });
-
-        var errs = usr.validate();
-        var msg = '';
-        var email =name+ '@pixonic.ru';
-
-        if (!errs.isValid()) {
-            errs.each(function (err) {
-                msg += err.getField() + ' : ' + err.getMessage() + '<br/>';
-            });
-        }
-
-        var errorLbl = this.getErrorLabel();
-        errorLbl.setHtml(msg);
         this.checkAuth(false);
     },
 
@@ -64,23 +41,21 @@ Ext.define('PixonicTeam.controller.LoginController', {
     },
 
     handleAuthResult: function(authResult) {
-            var authorizeButton = document.getElementById('authorize-button');
             if (authResult && !authResult.error) {
                 // authorizeButton.style.visibility = 'hidden';
                 // makeApiCall();
-             //  var errorLbl = this.getErrorLabel();
+             // var errorLbl = this.getErrorLabel();
                // errorLbl.setHtml("Auth OK: Token "+ authResult.access_token);
                 console.log("Auth OK, code, token"+authResult.code + authResult.access_token);
             } else {
                 console.log("AUth ERROR"+ authResult.error);
-                // errorLbl.setHtml("Auth ERROR:" + authResult.error);
+               //  errorLbl.setHtml("Auth ERROR:");
             }
     },
 
     launch: function() {
         console.log('launch controller');
         gapi.client.setApiKey(apiKey);
-         window.setTimeout(this.checkAuth(true),1);
     }
 
 });

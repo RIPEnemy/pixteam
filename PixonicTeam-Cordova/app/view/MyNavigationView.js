@@ -16,19 +16,9 @@
 Ext.define('PixonicTeam.view.MyNavigationView', {
     extend: 'Ext.navigation.View',
 
-    requires: [
-        'PixonicTeam.view.LoginPanel',
-        'Ext.form.Panel'
-    ],
-
     config: {
         centered: false,
-        items: [
-            {
-                xtype: 'loginPanel',
-                title: 'Pixonic Team'
-            }
-        ]
+        hidden: true
     }
 
 });

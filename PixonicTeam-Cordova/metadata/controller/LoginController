@@ -59,27 +59,6 @@
                 "designer|targetType": "Ext.Button",
                 "fn": "onButtonTap",
                 "implHandler": [
-                    "",
-                    "var name = this.getUsernameField().getValue();",
-                    "var pwd = this.getPasswordField().getValue();",
-                    "",
-                    "var usr = Ext.create('PixonicTeam.model.User',{",
-                    "    email: name + '@pixonic.ru',",
-                    "    password: pwd,",
-                    "});",
-                    "",
-                    "var errs = usr.validate();",
-                    "var msg = '';",
-                    "var email =name+ '@pixonic.ru';",
-                    "",
-                    "if (!errs.isValid()) {",
-                    "    errs.each(function (err) {",
-                    "        msg += err.getField() + ' : ' + err.getMessage() + '<br/>';",
-                    "    });",
-                    "}",
-                    "",
-                    "var errorLbl = this.getErrorLabel();",
-                    "errorLbl.setHtml(msg);",
                     "this.checkAuth(false);"
                 ],
                 "name": "tap"
@@ -102,34 +81,6 @@
             "designerId": "71f14454-ad10-47c0-9899-d52241fa79dc"
         },
         {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "usernameField",
-                "selector": "#emailField"
-            },
-            "name": "usernameField",
-            "designerId": "9c262219-635b-4a98-b2ad-4b89ce0477c5"
-        },
-        {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "passwordField",
-                "selector": "#passwordField"
-            },
-            "name": "passwordField",
-            "designerId": "e99419e1-13da-4e1a-8b71-fe93cb3e7155"
-        },
-        {
             "type": "basicfunction",
             "reference": {
                 "name": "items",
@@ -142,16 +93,15 @@
                 ],
                 "fn": "handleAuthResult",
                 "implHandler": [
-                    "    var authorizeButton = document.getElementById('authorize-button');",
                     "    if (authResult && !authResult.error) {",
                     "        // authorizeButton.style.visibility = 'hidden';",
                     "        // makeApiCall();",
-                    "     //  var errorLbl = this.getErrorLabel();",
+                    "     // var errorLbl = this.getErrorLabel();",
                     "       // errorLbl.setHtml(\"Auth OK: Token \"+ authResult.access_token);",
                     "        console.log(\"Auth OK, code, token\"+authResult.code + authResult.access_token);",
                     "    } else {",
                     "        console.log(\"AUth ERROR\"+ authResult.error);",
-                    "        // errorLbl.setHtml(\"Auth ERROR:\" + authResult.error);",
+                    "       //  errorLbl.setHtml(\"Auth ERROR:\");",
                     "    }"
                 ]
             },
@@ -169,8 +119,7 @@
                 "fn": "launch",
                 "implHandler": [
                     "console.log('launch controller');",
-                    "gapi.client.setApiKey(apiKey);",
-                    " window.setTimeout(this.checkAuth(true),1);"
+                    "gapi.client.setApiKey(apiKey);"
                 ]
             },
             "name": "launch",

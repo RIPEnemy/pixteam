@@ -33503,433 +33503,6 @@ Ext.define('Ext.field.Field', {
 }, function() {});
 
 /**
- * The text field is the basis for most of the input fields in Sencha Touch. It provides a baseline of shared
- * functionality such as input validation, standard events, state management and look and feel. Typically we create
- * text fields inside a form, like this:
- *
- *     @example
- *     Ext.create('Ext.form.Panel', {
- *         fullscreen: true,
- *         items: [
- *             {
- *                 xtype: 'fieldset',
- *                 title: 'Enter your name',
- *                 items: [
- *                     {
- *                         xtype: 'textfield',
- *                         label: 'First Name',
- *                         name: 'firstName'
- *                     },
- *                     {
- *                         xtype: 'textfield',
- *                         label: 'Last Name',
- *                         name: 'lastName'
- *                     }
- *                 ]
- *             }
- *         ]
- *     });
- *
- * This creates two text fields inside a form. Text Fields can also be created outside of a Form, like this:
- *
- *     Ext.create('Ext.field.Text', {
- *         label: 'Your Name',
- *         value: 'Ed Spencer'
- *     });
- *
- * ## Configuring
- *
- * Text field offers several configuration options, including {@link #placeHolder}, {@link #maxLength},
- * {@link #autoComplete}, {@link #autoCapitalize} and {@link #autoCorrect}. For example, here is how we would configure
- * a text field to have a maximum length of 10 characters, with placeholder text that disappears when the field is
- * focused:
- *
- *     Ext.create('Ext.field.Text', {
- *         label: 'Username',
- *         maxLength: 10,
- *         placeHolder: 'Enter your username'
- *     });
- *
- * The autoComplete, autoCapitalize and autoCorrect configs simply set those attributes on the text field and allow the
- * native browser to provide those capabilities. For example, to enable auto complete and auto correct, simply
- * configure your text field like this:
- *
- *     Ext.create('Ext.field.Text', {
- *         label: 'Username',
- *         autoComplete: true,
- *         autoCorrect: true
- *     });
- *
- * These configurations will be picked up by the native browser, which will enable the options at the OS level.
- *
- * Text field inherits from {@link Ext.field.Field}, which is the base class for all fields in Sencha Touch and provides
- * a lot of shared functionality for all fields, including setting values, clearing and basic validation. See the
- * {@link Ext.field.Field} documentation to see how to leverage its capabilities.
- *
- * For more information regarding forms and fields, please review [Using Forms in Sencha Touch Guide](../../../components/forms.html)
- */
-Ext.define('Ext.field.Text', {
-    extend: Ext.field.Field,
-    xtype: 'textfield',
-    alternateClassName: 'Ext.form.Text',
-    /**
-     * @event focus
-     * Fires when this field receives input focus
-     * @param {Ext.field.Text} this This field
-     * @param {Ext.event.Event} e
-     */
-    /**
-     * @event blur
-     * Fires when this field loses input focus
-     * @param {Ext.field.Text} this This field
-     * @param {Ext.event.Event} e
-     */
-    /**
-     * @event paste
-     * Fires when this field is pasted.
-     * @param {Ext.field.Text} this This field
-     * @param {Ext.event.Event} e
-     */
-    /**
-     * @event mousedown
-     * Fires when this field receives a mousedown
-     * @param {Ext.field.Text} this This field
-     * @param {Ext.event.Event} e
-     */
-    /**
-     * @event keyup
-     * @preventable doKeyUp
-     * Fires when a key is released on the input element
-     * @param {Ext.field.Text} this This field
-     * @param {Ext.event.Event} e
-     */
-    /**
-     * @event clearicontap
-     * @preventable doClearIconTap
-     * Fires when the clear icon is tapped
-     * @param {Ext.field.Text} this This field
-     * @param {Ext.field.Input} input The field's input component.
-     * @param {Ext.event.Event} e
-     */
-    /**
-     * @event change
-     * Fires just before the field blurs if the field value has changed
-     * @param {Ext.field.Text} this This field
-     * @param {Mixed} newValue The new value
-     * @param {Mixed} oldValue The original value
-     */
-    /**
-     * @event action
-     * @preventable doAction
-     * Fires whenever the return key or go is pressed. FormPanel listeners
-     * for this event, and submits itself whenever it fires. Also note
-     * that this event bubbles up to parent containers.
-     * @param {Ext.field.Text} this This field
-     * @param {Mixed} e The key event object
-     */
-    config: {
-        /**
-         * @cfg
-         * @inheritdoc
-         */
-        ui: 'text',
-        /**
-         * @cfg
-         * @inheritdoc
-         */
-        clearIcon: true,
-        /**
-         * @cfg {String} placeHolder A string value displayed in the input (if supported) when the control is empty.
-         * @accessor
-         */
-        placeHolder: null,
-        /**
-         * @cfg {Number} maxLength The maximum number of permitted input characters.
-         * @accessor
-         */
-        maxLength: null,
-        /**
-         * True to set the field's DOM element autocomplete attribute to "on", false to set to "off".
-         * @cfg {Boolean} autoComplete
-         * @accessor
-         */
-        autoComplete: null,
-        /**
-         * True to set the field's DOM element autocapitalize attribute to "on", false to set to "off".
-         * @cfg {Boolean} autoCapitalize
-         * @accessor
-         */
-        autoCapitalize: null,
-        /**
-         * True to set the field DOM element autocorrect attribute to "on", false to set to "off".
-         * @cfg {Boolean} autoCorrect
-         * @accessor
-         */
-        autoCorrect: null,
-        /**
-         * True to set the field DOM element readonly attribute to true.
-         * @cfg {Boolean} readOnly
-         * @accessor
-         */
-        readOnly: null,
-        /**
-         * @cfg {Object} component The inner component for this field, which defaults to an input text.
-         * @accessor
-         */
-        component: {
-            xtype: 'input',
-            type: 'text',
-            fastFocus: true
-        },
-        bubbleEvents: [
-            'action'
-        ]
-    },
-    // @private
-    initialize: function() {
-        var me = this;
-        me.callParent();
-        me.getComponent().on({
-            scope: this,
-            keyup: 'onKeyUp',
-            change: 'onChange',
-            focus: 'onFocus',
-            blur: 'onBlur',
-            paste: 'onPaste',
-            mousedown: 'onMouseDown',
-            clearicontap: 'onClearIconTap'
-        });
-        // set the originalValue of the textfield, if one exists
-        me.originalValue = me.getValue() || "";
-        me.getComponent().originalValue = me.originalValue;
-        me.syncEmptyCls();
-    },
-    syncEmptyCls: function() {
-        var empty = (this._value) ? this._value.length : false,
-            cls = Ext.baseCSSPrefix + 'empty';
-        if (empty) {
-            this.removeCls(cls);
-        } else {
-            this.addCls(cls);
-        }
-    },
-    // @private
-    updateValue: function(newValue) {
-        var component = this.getComponent(),
-            // allows newValue to be zero but not undefined or null (other falsey values)
-            valueValid = newValue !== undefined && newValue !== null && newValue !== "";
-        if (component) {
-            component.setValue(newValue);
-        }
-        this[valueValid && this.isDirty() ? 'showClearIcon' : 'hideClearIcon']();
-        this.syncEmptyCls();
-    },
-    getValue: function() {
-        var me = this;
-        me._value = me.getComponent().getValue();
-        me.syncEmptyCls();
-        return me._value;
-    },
-    // @private
-    updatePlaceHolder: function(newPlaceHolder) {
-        this.getComponent().setPlaceHolder(newPlaceHolder);
-    },
-    // @private
-    updateMaxLength: function(newMaxLength) {
-        this.getComponent().setMaxLength(newMaxLength);
-    },
-    // @private
-    updateAutoComplete: function(newAutoComplete) {
-        this.getComponent().setAutoComplete(newAutoComplete);
-    },
-    // @private
-    updateAutoCapitalize: function(newAutoCapitalize) {
-        this.getComponent().setAutoCapitalize(newAutoCapitalize);
-    },
-    // @private
-    updateAutoCorrect: function(newAutoCorrect) {
-        this.getComponent().setAutoCorrect(newAutoCorrect);
-    },
-    // @private
-    updateReadOnly: function(newReadOnly) {
-        if (newReadOnly) {
-            this.hideClearIcon();
-        } else {
-            this.showClearIcon();
-        }
-        this.getComponent().setReadOnly(newReadOnly);
-    },
-    // @private
-    updateInputType: function(newInputType) {
-        var component = this.getComponent();
-        if (component) {
-            component.setType(newInputType);
-        }
-    },
-    // @private
-    updateName: function(newName) {
-        var component = this.getComponent();
-        if (component) {
-            component.setName(newName);
-        }
-    },
-    // @private
-    updateTabIndex: function(newTabIndex) {
-        var component = this.getComponent();
-        if (component) {
-            component.setTabIndex(newTabIndex);
-        }
-    },
-    /**
-     * Updates the {@link #inputCls} configuration on this fields {@link #component}
-     * @private
-     */
-    updateInputCls: function(newInputCls, oldInputCls) {
-        var component = this.getComponent();
-        if (component) {
-            component.replaceCls(oldInputCls, newInputCls);
-        }
-    },
-    doSetDisabled: function(disabled) {
-        var me = this;
-        me.callParent(arguments);
-        var component = me.getComponent();
-        if (component) {
-            component.setDisabled(disabled);
-        }
-        if (disabled) {
-            me.hideClearIcon();
-        } else {
-            me.showClearIcon();
-        }
-    },
-    // @private
-    showClearIcon: function() {
-        var me = this,
-            value = me.getValue(),
-            // allows value to be zero but not undefined or null (other falsey values)
-            valueValid = value !== undefined && value !== null && value !== "";
-        if (me.getClearIcon() && !me.getDisabled() && !me.getReadOnly() && valueValid) {
-            me.element.addCls(Ext.baseCSSPrefix + 'field-clearable');
-        }
-        return me;
-    },
-    // @private
-    hideClearIcon: function() {
-        if (this.getClearIcon()) {
-            this.element.removeCls(Ext.baseCSSPrefix + 'field-clearable');
-        }
-    },
-    onKeyUp: function(e) {
-        this.fireAction('keyup', [
-            this,
-            e
-        ], 'doKeyUp');
-    },
-    /**
-     * Called when a key has been pressed in the `<input>`
-     * @private
-     */
-    doKeyUp: function(me, e) {
-        // getValue to ensure that we are in sync with the dom
-        var value = me.getValue(),
-            // allows value to be zero but not undefined or null (other falsey values)
-            valueValid = value !== undefined && value !== null && value !== "";
-        this[valueValid ? 'showClearIcon' : 'hideClearIcon']();
-        if (e.browserEvent.keyCode === 13) {
-            me.fireAction('action', [
-                me,
-                e
-            ], 'doAction');
-        }
-    },
-    doAction: function() {
-        this.blur();
-    },
-    onClearIconTap: function(input, e) {
-        this.fireAction('clearicontap', [
-            this,
-            input,
-            e
-        ], 'doClearIconTap');
-    },
-    // @private
-    doClearIconTap: function(me, e) {
-        me.setValue('');
-        //sync with the input
-        me.getValue();
-    },
-    onChange: function(me, value, startValue) {
-        me.fireEvent('change', this, value, startValue);
-    },
-    onFocus: function(e) {
-        this.addCls(Ext.baseCSSPrefix + 'field-focused');
-        this.isFocused = true;
-        this.fireEvent('focus', this, e);
-    },
-    onBlur: function(e) {
-        var me = this;
-        this.removeCls(Ext.baseCSSPrefix + 'field-focused');
-        this.isFocused = false;
-        me.fireEvent('blur', me, e);
-        setTimeout(function() {
-            me.isFocused = false;
-        }, 50);
-    },
-    onPaste: function(e) {
-        this.fireEvent('paste', this, e);
-    },
-    onMouseDown: function(e) {
-        this.fireEvent('mousedown', this, e);
-    },
-    /**
-     * Attempts to set the field as the active input focus.
-     * @return {Ext.field.Text} This field
-     */
-    focus: function() {
-        this.getComponent().focus();
-        return this;
-    },
-    /**
-     * Attempts to forcefully blur input focus for the field.
-     * @return {Ext.field.Text} This field
-     */
-    blur: function() {
-        this.getComponent().blur();
-        return this;
-    },
-    /**
-     * Attempts to forcefully select all the contents of the input field.
-     * @return {Ext.field.Text} this
-     */
-    select: function() {
-        this.getComponent().select();
-        return this;
-    },
-    resetOriginalValue: function() {
-        this.callParent();
-        var component = this.getComponent();
-        if (component && component.hasOwnProperty("originalValue")) {
-            this.getComponent().originalValue = this.originalValue;
-        }
-        this.reset();
-    },
-    reset: function() {
-        this.getComponent().reset();
-        //we need to call this to sync the input with this field
-        this.getValue();
-        this[this.isDirty() ? 'showClearIcon' : 'hideClearIcon']();
-    },
-    isDirty: function() {
-        var component = this.getComponent();
-        if (component) {
-            return component.isDirty();
-        }
-        return false;
-    }
-});
-
-/**
  * {@link Ext.TitleBar}'s are most commonly used as a docked item within an {@link Ext.Container}.
  *
  * The main difference between a {@link Ext.TitleBar} and an {@link Ext.Toolbar} is that
@@ -51725,244 +51298,6 @@ Ext.define('Ext.field.Checkbox', {
 });
 
 /**
- * The Email field creates an HTML5 email input and is usually created inside a form. Because it creates an HTML email
- * input field, most browsers will show a specialized virtual keyboard for email address input. Aside from that, the
- * email field is just a normal text field. Here's an example of how to use it in a form:
- *
- *     @example
- *     Ext.create('Ext.form.Panel', {
- *         fullscreen: true,
- *         items: [
- *             {
- *                 xtype: 'fieldset',
- *                 title: 'Register',
- *                 items: [
- *                     {
- *                         xtype: 'emailfield',
- *                         label: 'Email',
- *                         name: 'email'
- *                     },
- *                     {
- *                         xtype: 'passwordfield',
- *                         label: 'Password',
- *                         name: 'password'
- *                     }
- *                 ]
- *             }
- *         ]
- *     });
- *
- * Or on its own, outside of a form:
- *
- *     Ext.create('Ext.field.Email', {
- *         label: 'Email address',
- *         value: 'prefilled@email.com'
- *     });
- *
- * Because email field inherits from {@link Ext.field.Text textfield} it gains all of the functionality that text fields
- * provide, including getting and setting the value at runtime, validations and various events that are fired as the
- * user interacts with the component. Check out the {@link Ext.field.Text} docs to see the additional functionality
- * available.
- *
- * For more information regarding forms and fields, please review [Using Forms in Sencha Touch Guide](../../../components/forms.html)
- */
-Ext.define('Ext.field.Email', {
-    extend: Ext.field.Text,
-    alternateClassName: 'Ext.form.Email',
-    xtype: 'emailfield',
-    config: {
-        /**
-         * @cfg
-         * @inheritdoc
-         */
-        component: {
-            type: 'email'
-        },
-        /**
-         * @cfg
-         * @inheritdoc
-         */
-        autoCapitalize: false
-    }
-});
-
-/**
- * A FieldSet is a great way to visually separate elements of a form. It's normally used when you have a form with
- * fields that can be divided into groups - for example a customer's billing details in one fieldset and their shipping
- * address in another. A fieldset can be used inside a form or on its own elsewhere in your app. Fieldsets can
- * optionally have a title at the top and instructions at the bottom. Here's how we might create a FieldSet inside a
- * form:
- *
- *     @example
- *     Ext.create('Ext.form.Panel', {
- *         fullscreen: true,
- *         items: [
- *             {
- *                 xtype: 'fieldset',
- *                 title: 'About You',
- *                 instructions: 'Tell us all about yourself',
- *                 items: [
- *                     {
- *                         xtype: 'textfield',
- *                         name : 'firstName',
- *                         label: 'First Name'
- *                     },
- *                     {
- *                         xtype: 'textfield',
- *                         name : 'lastName',
- *                         label: 'Last Name'
- *                     }
- *                 ]
- *             }
- *         ]
- *     });
- *
- * Above we created a {@link Ext.form.Panel form} with a fieldset that contains two text fields. In this case, all
- * of the form fields are in the same fieldset, but for longer forms we may choose to use multiple fieldsets. We also
- * configured a {@link #title} and {@link #instructions} to give the user more information on filling out the form if
- * required.
- *
- * For more information regarding forms and fields, please review [Using Forms in Sencha Touch Guide](../../../components/forms.html)
- */
-Ext.define('Ext.form.FieldSet', {
-    extend: Ext.Container,
-    alias: 'widget.fieldset',
-    config: {
-        /**
-         * @cfg
-         * @inheritdoc
-         */
-        baseCls: Ext.baseCSSPrefix + 'form-fieldset',
-        /**
-         * @cfg {String} title
-         * Optional fieldset title, rendered just above the grouped fields.
-         *
-         * ## Example
-         *
-         *     Ext.create('Ext.form.Fieldset', {
-         *         fullscreen: true,
-         *
-         *         title: 'Login',
-         *
-         *         items: [{
-         *             xtype: 'textfield',
-         *             label: 'Email'
-         *         }]
-         *     });
-         * 
-         * @accessor
-         */
-        title: null,
-        /**
-         * @cfg {String} instructions
-         * Optional fieldset instructions, rendered just below the grouped fields.
-         *
-         * ## Example
-         *
-         *     Ext.create('Ext.form.Fieldset', {
-         *         fullscreen: true,
-         *
-         *         instructions: 'Please enter your email address.',
-         *
-         *         items: [{
-         *             xtype: 'textfield',
-         *             label: 'Email'
-         *         }]
-         *     });
-         * 
-         * @accessor
-         */
-        instructions: null
-    },
-    // @private
-    applyTitle: function(title) {
-        if (typeof title == 'string') {
-            title = {
-                title: title
-            };
-        }
-        Ext.applyIf(title, {
-            docked: 'top',
-            baseCls: this.getBaseCls() + '-title'
-        });
-        return Ext.factory(title, Ext.Title, this._title);
-    },
-    // @private
-    updateTitle: function(newTitle, oldTitle) {
-        if (newTitle) {
-            this.add(newTitle);
-        }
-        if (oldTitle) {
-            this.remove(oldTitle);
-        }
-    },
-    // @private
-    getTitle: function() {
-        var title = this._title;
-        if (title && title instanceof Ext.Title) {
-            return title.getTitle();
-        }
-        return title;
-    },
-    // @private
-    applyInstructions: function(instructions) {
-        if (typeof instructions == 'string') {
-            instructions = {
-                title: instructions
-            };
-        }
-        Ext.applyIf(instructions, {
-            docked: 'bottom',
-            baseCls: this.getBaseCls() + '-instructions'
-        });
-        return Ext.factory(instructions, Ext.Title, this._instructions);
-    },
-    // @private
-    updateInstructions: function(newInstructions, oldInstructions) {
-        if (newInstructions) {
-            this.add(newInstructions);
-        }
-        if (oldInstructions) {
-            this.remove(oldInstructions);
-        }
-    },
-    // @private
-    getInstructions: function() {
-        var instructions = this._instructions;
-        if (instructions && instructions instanceof Ext.Title) {
-            return instructions.getTitle();
-        }
-        return instructions;
-    },
-    /**
-     * A convenient method to disable all fields in this FieldSet
-     * @return {Ext.form.FieldSet} This FieldSet
-     */
-    doSetDisabled: function(newDisabled) {
-        this.getFieldsAsArray().forEach(function(field) {
-            field.setDisabled(newDisabled);
-        });
-        return this;
-    },
-    /**
-     * @private
-     */
-    getFieldsAsArray: function() {
-        var fields = [],
-            getFieldsFrom = function(item) {
-                if (item.isField) {
-                    fields.push(item);
-                }
-                if (item.isContainer) {
-                    item.getItems().each(getFieldsFrom);
-                }
-            };
-        this.getItems().each(getFieldsFrom);
-        return fields;
-    }
-});
-
-/**
  * The Form panel presents a set of form fields and provides convenient ways to load and save data. Usually a form
  * panel just contains the set of fields you want to display, ordered inside the items configuration like this:
  *
@@ -56602,9 +55937,7 @@ Ext.define('PixonicTeam.controller.LoginController', {
     config: {
         refs: {
             loginBtn: '#loginBtn',
-            errorLabel: '#loginErrorLabel',
-            usernameField: '#emailField',
-            passwordField: '#passwordField'
+            errorLabel: '#loginErrorLabel'
         },
         control: {
             "[action=confirm]": {
@@ -56613,22 +55946,6 @@ Ext.define('PixonicTeam.controller.LoginController', {
         }
     },
     onButtonTap: function(button, e, eOpts) {
-        var name = this.getUsernameField().getValue();
-        var pwd = this.getPasswordField().getValue();
-        var usr = Ext.create('PixonicTeam.model.User', {
-                email: name + '@pixonic.ru',
-                password: pwd
-            });
-        var errs = usr.validate();
-        var msg = '';
-        var email = name + '@pixonic.ru';
-        if (!errs.isValid()) {
-            errs.each(function(err) {
-                msg += err.getField() + ' : ' + err.getMessage() + '<br/>';
-            });
-        }
-        var errorLbl = this.getErrorLabel();
-        errorLbl.setHtml(msg);
         this.checkAuth(false);
     },
     checkAuth: function(immediate) {
@@ -56642,22 +55959,20 @@ Ext.define('PixonicTeam.controller.LoginController', {
         }, this.handleAuthResult);
     },
     handleAuthResult: function(authResult) {
-        var authorizeButton = document.getElementById('authorize-button');
         if (authResult && !authResult.error) {
             // authorizeButton.style.visibility = 'hidden';
             // makeApiCall();
-            //  var errorLbl = this.getErrorLabel();
+            // var errorLbl = this.getErrorLabel();
             // errorLbl.setHtml("Auth OK: Token "+ authResult.access_token);
             console.log("Auth OK, code, token" + authResult.code + authResult.access_token);
         } else {
             console.log("AUth ERROR" + authResult.error);
         }
     },
-    // errorLbl.setHtml("Auth ERROR:" + authResult.error);
+    //  errorLbl.setHtml("Auth ERROR:");
     launch: function() {
         console.log('launch controller');
         gapi.client.setApiKey(apiKey);
-        window.setTimeout(this.checkAuth(true), 1);
     }
 });
 
@@ -56703,7 +56018,7 @@ Ext.define('PixonicTeam.model.User', {
 });
 
 /*
- * File: app/view/LoginPanel.js
+ * File: app/view/Login.js
  *
  * This file was generated by Sencha Architect version 3.2.0.
  * http://www.sencha.com/products/architect/
@@ -56716,55 +56031,43 @@ Ext.define('PixonicTeam.model.User', {
  *
  * Do NOT hand edit this file.
  */
-Ext.define('PixonicTeam.view.LoginPanel', {
+Ext.define('PixonicTeam.view.Login', {
     extend: Ext.form.Panel,
-    alias: 'widget.loginPanel',
+    alias: 'widget.login',
     config: {
+        scrollable: false,
         items: [
             {
-                xtype: 'fieldset',
-                id: 'loginPanel',
-                title: 'Welcome to Pixonic Team!',
-                items: [
-                    {
-                        xtype: 'emailfield',
-                        id: 'emailField',
-                        label: '@pixonic.ru',
-                        labelAlign: 'right',
-                        labelWidth: '41%',
-                        placeHolder: 'email'
-                    },
-                    {
-                        xtype: 'textfield',
-                        id: 'passwordField',
-                        label: '',
-                        name: 'Password',
-                        required: true
-                    }
-                ]
-            },
-            {
                 xtype: 'container',
-                height: '100px',
+                padding: '50 0 0 0',
                 layout: {
                     type: 'vbox',
                     align: 'center'
                 },
                 items: [
                     {
-                        xtype: 'button',
-                        action: 'confirm',
-                        centered: true,
-                        id: 'loginBtn',
-                        width: '200px',
-                        text: 'Login'
+                        xtype: 'label',
+                        height: 100,
+                        html: 'Добро пожаловать в Pixonic Team! Войдите, используя аккаунт @pixonic.ru',
+                        id: 'helloLabel',
+                        style: 'text-align: center',
+                        width: 300
                     },
                     {
                         xtype: 'label',
-                        cls: 'x-label-error',
-                        height: '40 px',
-                        html: 'web',
-                        id: 'loginErrorLabel'
+                        html: '',
+                        id: 'errorLabel',
+                        padding: '0 0 20 0',
+                        style: 'color:red'
+                    },
+                    {
+                        xtype: 'button',
+                        action: 'confirm',
+                        height: 46,
+                        id: 'loginBtn',
+                        style: 'background-image: url(resources/images/btn_google_signin_dark_normal_web.png)  ',
+                        width: 191,
+                        text: ''
                     }
                 ]
             }
@@ -56790,12 +56093,7 @@ Ext.define('PixonicTeam.view.MyNavigationView', {
     extend: Ext.navigation.View,
     config: {
         centered: false,
-        items: [
-            {
-                xtype: 'loginPanel',
-                title: 'Pixonic Team'
-            }
-        ]
+        hidden: true
     }
 });
 
@@ -56820,15 +56118,14 @@ Ext.application({
         'User'
     ],
     views: [
-        'MyNavigationView',
-        'LoginPanel'
+        'MyNavigationView'
     ],
     controllers: [
         'LoginController'
     ],
     name: 'PixonicTeam',
     launch: function() {
-        Ext.create('PixonicTeam.view.MyNavigationView', {
+        Ext.create('PixonicTeam.view.Login', {
             fullscreen: true
         });
     }

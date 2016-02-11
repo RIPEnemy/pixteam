@@ -24,8 +24,7 @@ Ext.application({
         'User'
     ],
     views: [
-        'MyNavigationView',
-        'LoginPanel'
+        'MyNavigationView'
     ],
     controllers: [
         'LoginController'
@@ -34,7 +33,7 @@ Ext.application({
 
     launch: function() {
 
-        Ext.create('PixonicTeam.view.MyNavigationView', {fullscreen: true});
+        Ext.create('PixonicTeam.view.Login', {fullscreen: true});
     }
 
 });
