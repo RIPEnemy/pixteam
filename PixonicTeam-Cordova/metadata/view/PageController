@@ -1,0 +1,55 @@
+{
+    "type": "Ext.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "PageController"
+    },
+    "name": "MyPanel",
+    "designerId": "e5cc5a8f-d2f8-465c-b342-9064f865a1e9",
+    "cn": [
+        {
+            "type": "Ext.TitleBar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "Top Bar",
+                "designer|uiInterfaceName": "light",
+                "docked": "top",
+                "height": 80,
+                "itemId": "mytitlebar",
+                "maxButtonWidth": null,
+                "title": null,
+                "ui": "light"
+            },
+            "name": "MyTitleBar",
+            "designerId": "0134839f-d317-40d6-8072-bacbc2d3b837",
+            "cn": [
+                {
+                    "type": "Ext.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "baseCls": null,
+                        "height": 42,
+                        "html": "СОТРУДНИКИ",
+                        "id": "helloLable",
+                        "style": "text-align: center",
+                        "width": 623
+                    },
+                    "name": "MyLabel2",
+                    "designerId": "2a334582-d520-43b1-ade2-26566d92e7ab"
+                }
+            ]
+        }
+    ]
+}
