@@ -1,0 +1,192 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "LoginController"
+    },
+    "name": "MyController",
+    "designerId": "d93f297e-995b-4f39-adff-f39e6e5855b1",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "loginBtn",
+                "selector": "#loginBtn"
+            },
+            "name": "loginBtn",
+            "designerId": "27a9ceb8-5fc8-45f3-abc2-1850942f5208"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "immediate"
+                ],
+                "fn": "checkAuth",
+                "implHandler": [
+                    "console.log(\"trying login with immediate \" + immediate);",
+                    "//var email = this.getUsernameField().getValue() + \"@pixonic.ru\";",
+                    " //   gapi.auth.authorize({client_id: clientId, scope: scopes, login_hint: email, immediate: immediate}, this.handleAuthResult);",
+                    "gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: immediate}, this.handleAuthResult);"
+                ]
+            },
+            "name": "checkAuth",
+            "designerId": "fddc70a2-2686-476a-8479-5c3c7bd64967"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "[action=confirm]",
+                "designer|targetType": "Ext.Button",
+                "fn": "onButtonTap",
+                "implHandler": [
+                    "this.checkAuth(false);",
+                    "var err = this.getErrorLabel();"
+                ],
+                "name": "tap"
+            },
+            "name": "onButtonTap",
+            "designerId": "1c15fcaa-9c54-4d7c-8fb7-f150c2c59822"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "errorLabel",
+                "selector": "#loginErrorLabel"
+            },
+            "name": "errorLabel",
+            "designerId": "71f14454-ad10-47c0-9899-d52241fa79dc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "authResult"
+                ],
+                "fn": "handleAuthResult",
+                "implHandler": [
+                    "//var errorLbl = this.getErrorLabel();",
+                    "if (authResult && !authResult.error) {",
+                    "        // authorizeButton.style.visibility = 'hidden';",
+                    "        // makeApiCall();",
+                    "",
+                    "      //  errorLbl.setHtml(\"Auth OK: Token \"+ authResult.access_token);",
+                    "        console.log(\"Auth OK, code, token\"+authResult.code + authResult.access_token);",
+                    "    //    loadCalendarApi();",
+                    "    } else {",
+                    "        console.log(\"AUth ERROR\"+ authResult.error);",
+                    "        // errorLbl.setHtml(\"Auth ERROR:\" + authResult.error);",
+                    "    }"
+                ]
+            },
+            "name": "handleAuthResult",
+            "designerId": "e3c5af8b-7602-4a64-b323-330bfb51616e"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "launch",
+                "implHandler": [
+                    "console.log('launch controller');",
+                    "gapi.client.setApiKey(apiKey);"
+                ]
+            },
+            "name": "launch",
+            "designerId": "572ded4f-0e37-4ef4-9c40-4118b5508375"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "loadCalendarApi",
+                "implHandler": [
+                    "",
+                    "        gapi.client.load('calendar', 'v3', listUpcomingEvents);"
+                ]
+            },
+            "name": "loadCalendarApi",
+            "designerId": "ae32ce76-96f0-48df-8651-0c3ef38821c7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "listUpcomingEvents",
+                "implHandler": [
+                    "       var request = gapi.client.calendar.events.list({",
+                    "          'calendarId': 'primary',",
+                    "          'timeMin': (new Date()).toISOString(),",
+                    "          'showDeleted': false,",
+                    "          'singleEvents': true,",
+                    "          'maxResults': 10,",
+                    "          'orderBy': 'startTime'",
+                    "        });",
+                    "",
+                    "        request.execute(function(resp) {",
+                    "          var events = resp.items;",
+                    "          var msg = 'Upcoming events:';",
+                    "",
+                    "          if (events.length > 0) {",
+                    "            for (i = 0; i < events.length; i++) {",
+                    "              var event = events[i];",
+                    "              var when = event.start.dateTime;",
+                    "              if (!when) {",
+                    "                when = event.start.date;",
+                    "              }",
+                    "              msg += event.summary + ' (' + when + ')';",
+                    "            }",
+                    "          } else {",
+                    "            msg += 'No upcoming events found.';",
+                    "          }",
+                    "            ",
+                    "        console.log(msg);",
+                    "        });"
+                ]
+            },
+            "name": "listUpcomingEvents",
+            "designerId": "0540247a-070b-4189-a23d-58c9003344d9"
+        }
+    ]
+}

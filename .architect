@@ -1,0 +1,66 @@
+{
+    "expandedState": {
+        "view": true,
+        "667a5844-c4ba-4328-93de-cd1ebe357616": {
+            "id": "667a5844-c4ba-4328-93de-cd1ebe357616"
+        },
+        "1592eac7-8d20-4088-810c-541f0a596f4a": {
+            "id": "1592eac7-8d20-4088-810c-541f0a596f4a",
+            "cn": [
+                {
+                    "id": "15c421e1-8e7d-46bc-af7d-72e49aa42d76",
+                    "cn": [
+                        {
+                            "id": "775f2b14-1643-4034-9c16-52a5a08c72c7"
+                        },
+                        {
+                            "id": "74cbcc90-1488-4afe-b1a5-5c11feeae770"
+                        },
+                        {
+                            "id": "f762b736-0ef9-4393-8417-0cf79b26d23e"
+                        }
+                    ]
+                }
+            ]
+        },
+        "store": true,
+        "model": true,
+        "controller": true,
+        "resource": true,
+        "9aeda708-d9ea-43d1-9ad7-778cb262cc14": {
+            "id": "9aeda708-d9ea-43d1-9ad7-778cb262cc14"
+        },
+        "546dd549-4ce5-4953-8988-d2f9201c0d21": {
+            "id": "546dd549-4ce5-4953-8988-d2f9201c0d21"
+        },
+        "242293a0-1999-491f-beb0-a1f74b1658df": {
+            "id": "242293a0-1999-491f-beb0-a1f74b1658df"
+        },
+        "3a12f3a8-2bff-4434-806a-29876285b613": {
+            "id": "3a12f3a8-2bff-4434-806a-29876285b613"
+        },
+        "520c148e-cbcc-4a34-9c3e-77f0e1d378e7": {
+            "id": "520c148e-cbcc-4a34-9c3e-77f0e1d378e7"
+        },
+        "41ff1545-e45e-4c64-990d-58a399388a9e": {
+            "id": "41ff1545-e45e-4c64-990d-58a399388a9e"
+        },
+        "d4c04a32-a1f6-458b-b3bf-d8cff9db89a3": {
+            "id": "d4c04a32-a1f6-458b-b3bf-d8cff9db89a3"
+        }
+    },
+    "tabState": {
+        "openTabs": []
+    },
+    "canvasState": {
+        "topInstance": "1592eac7-8d20-4088-810c-541f0a596f4a"
+    },
+    "inspectorState": {
+        "topInstance": null,
+        "selectedInstance": null
+    },
+    "editMode": "design",
+    "userSettings": {
+        "no-cmd": false
+    }
+}

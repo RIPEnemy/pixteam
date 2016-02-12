@@ -1,0 +1,98 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userAlias": "login",
+        "designer|userClassName": "Login",
+        "scrollable": false
+    },
+    "name": "MyFormPanel",
+    "designerId": "1592eac7-8d20-4088-810c-541f0a596f4a",
+    "cn": [
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "center",
+                "layout": "vbox",
+                "padding": "50 0 0 0",
+                "scrollable": null
+            },
+            "name": "MyContainer1",
+            "designerId": "15c421e1-8e7d-46bc-af7d-72e49aa42d76",
+            "cn": [
+                {
+                    "type": "Ext.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 100,
+                        "html": "Добро пожаловать в Pixonic Team! Войдите, используя аккаунт @pixonic.ru",
+                        "id": "helloLabel",
+                        "style": "text-align: center",
+                        "width": 300
+                    },
+                    "name": "MyLabel1",
+                    "designerId": "775f2b14-1643-4034-9c16-52a5a08c72c7"
+                },
+                {
+                    "type": "Ext.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "html": "",
+                        "id": "loginErrorLabel",
+                        "padding": "0 0 20 0",
+                        "style": "color:red"
+                    },
+                    "name": "MyLabel",
+                    "designerId": "74cbcc90-1488-4afe-b1a5-5c11feeae770"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "action": "confirm",
+                        "baseCls": "google-button-enabled",
+                        "disabled": false,
+                        "disabledCls": null,
+                        "height": 46,
+                        "id": "loginBtn",
+                        "pressedCls": "google-button-pressed",
+                        "style": "",
+                        "text": "",
+                        "width": 191
+                    },
+                    "name": "MyButton1",
+                    "designerId": "f762b736-0ef9-4393-8417-0cf79b26d23e",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "action",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
