@@ -1,0 +1,40 @@
+.x-form-fieldset{
+    text-align: center;
+}
+
+.x-field
+{
+    text-align: left;
+}
+
+.x-label-error
+{
+    color: red;
+    font: normal 16px helvetica !important;
+}
+
+.x-label-ok
+{
+    color: green;
+    font: normal 14px helvetica !important;
+}
+
+.x-button-label
+{
+    font: normal helvetica !important;
+}
+
+.google-button-enabled
+{
+    background-image: url(resources/images/btn_google_signin_dark_normal_web.png)  
+}
+
+.google-button-disabled
+{
+    background-image: url(btn_google_signin_dark_disabled_web.png)  
+}
+
+.google-button-pressed
+{
+    background-image: url(resources/images/btn_google_signin_dark_pressed_web.png)  
+}
