@@ -1,0 +1,11 @@
+{
+    "profiles": [
+        {
+            "name": "iPhone 4S",
+            "width": 640,
+            "height": 960,
+            "builtIn": false,
+            "fw": "touch"
+        }
+    ]
+}

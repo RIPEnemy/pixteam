@@ -673,9 +673,9 @@ Ext.ClassManager.addNameAlternateMappings({
   "MyApp.view.MyEmailField1": [],
   "PIxonicTeam.view.MyEmailField": [],
   "PixonicTeam.controller.LoginController": [],
-  "PixonicTeam.model.User": [],
+  "PixonicTeam.controller.menuController": [],
   "PixonicTeam.view.Login": [],
-  "PixonicTeam.view.MyNavigationView": []
+  "PixonicTeam.view.PageController": []
 });
 
 Ext.ClassManager.addNameAliasMappings({
@@ -1407,13 +1407,11 @@ Ext.ClassManager.addNameAliasMappings({
   "MyApp.view.MyEmailField1": [],
   "PIxonicTeam.view.MyEmailField": [],
   "PixonicTeam.controller.LoginController": [],
-  "PixonicTeam.model.User": [
-    "model.user"
-  ],
+  "PixonicTeam.controller.menuController": [],
   "PixonicTeam.view.Login": [
     "widget.login"
   ],
-  "PixonicTeam.view.MyNavigationView": []
+  "PixonicTeam.view.PageController": []
 });
 
 

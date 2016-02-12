@@ -7,14 +7,12 @@
     "codeClass": null,
     "userConfig": {
         "controllers": [
-            "LoginController"
-        ],
-        "models": [
-            "User"
+            "LoginController",
+            "menuController"
         ],
         "name": "PixonicTeam",
         "views": [
-            "MyNavigationView"
+            "PageController"
         ]
     },
     "name": "Application",

@@ -8,10 +8,10 @@
         },
         "canvasControls": {
             "viewportSize": {
-                "name": "iPhone",
-                "builtIn": true,
-                "height": 480,
-                "width": 320
+                "name": "iPhone 4S",
+                "builtIn": false,
+                "height": 960,
+                "width": 640
             },
             "viewportOrientation": "portrait"
         },
@@ -39,16 +39,15 @@
     "framework": "touch24",
     "viewOrderMap": {
         "view": [
-            "667a5844-c4ba-4328-93de-cd1ebe357616",
-            "1592eac7-8d20-4088-810c-541f0a596f4a"
+            "1592eac7-8d20-4088-810c-541f0a596f4a",
+            "b5fd68aa-e939-4285-ad7b-e6b0f5944951"
         ],
         "store": [],
         "controller": [
-            "d93f297e-995b-4f39-adff-f39e6e5855b1"
+            "d93f297e-995b-4f39-adff-f39e6e5855b1",
+            "db64656a-2f2f-402b-b8ed-c424d3229159"
         ],
-        "model": [
-            "5b903005-e4bb-4380-a53e-3e300b4527ca"
-        ],
+        "model": [],
         "resource": [
             "9aeda708-d9ea-43d1-9ad7-778cb262cc14",
             "546dd549-4ce5-4953-8988-d2f9201c0d21",

@@ -1,0 +1,92 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "PageController"
+    },
+    "name": "MyContainer",
+    "designerId": "b5fd68aa-e939-4285-ad7b-e6b0f5944951",
+    "cn": [
+        {
+            "type": "Ext.TitleBar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "centered": false,
+                "container|align": null,
+                "designer|uiInterfaceName": "light",
+                "docked": "top",
+                "height": 143,
+                "hidden": false,
+                "hideOnMaskTap": false,
+                "modal": false,
+                "title": null,
+                "titleAlign": null,
+                "ui": "light",
+                "width": 638
+            },
+            "name": "MyTitleBar",
+            "designerId": "26d2abb5-e8e8-4cab-8fca-929939c11e9a",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "action": "menuOpen",
+                        "baseCls": "menu-button",
+                        "designer|displayName": "menuButton",
+                        "docked": null,
+                        "height": 51,
+                        "id": "menuButton",
+                        "labelCls": null,
+                        "pressedCls": "menu-button",
+                        "text": null,
+                        "width": 82
+                    },
+                    "name": "MyButton",
+                    "designerId": "49f76fe7-0318-4bc4-97a7-f4d1a7c33afd",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "action",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "baseCls": "x-title-lable",
+                        "designer|displayName": "Title",
+                        "disabledCls": "x-title-lable",
+                        "docked": null,
+                        "height": 55,
+                        "html": "СОТРУДНИКИ",
+                        "id": "title",
+                        "style": "text-align: center; color: white; font: bold 40px calibri;",
+                        "top": null,
+                        "width": 460
+                    },
+                    "name": "MyLabel2",
+                    "designerId": "2155ef26-1858-4067-8733-8f92e39a427a"
+                }
+            ]
+        }
+    ]
+}

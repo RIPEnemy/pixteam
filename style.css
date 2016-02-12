@@ -24,17 +24,29 @@
     font: normal helvetica !important;
 }
 
+.x-title-lable
+{
+    color: white;
+    text-shadow: false;
+    font: bold 50px Calibri !important;
+}
+
 .google-button-enabled
 {
-    background-image: url(resources/images/btn_google_signin_dark_normal_web.png)  
+    background-image: url(resources/images/btn_google_signin_dark_normal_web.png);  
 }
 
 .google-button-disabled
 {
-    background-image: url(btn_google_signin_dark_disabled_web.png)  
+    background-image: url(btn_google_signin_dark_disabled_web.png);  
 }
 
 .google-button-pressed
 {
-    background-image: url(resources/images/btn_google_signin_dark_pressed_web.png)  
+    background-image: url(resources/images/btn_google_signin_dark_pressed_web.png);  
+}
+
+.menu-button
+{
+    background-image: url(resources/images/menu_button.png);
 }

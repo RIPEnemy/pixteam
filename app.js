@@ -20,14 +20,12 @@ Ext.Loader.setConfig({
 
 
 Ext.application({
-    models: [
-        'User'
-    ],
     views: [
-        'MyNavigationView'
+        'PageController'
     ],
     controllers: [
-        'LoginController'
+        'LoginController',
+        'menuController'
     ],
     name: 'PixonicTeam',
 

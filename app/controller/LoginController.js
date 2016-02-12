@@ -49,6 +49,7 @@ Ext.define('PixonicTeam.controller.LoginController', {
 
               //  errorLbl.setHtml("Auth OK: Token "+ authResult.access_token);
                 console.log("Auth OK, code, token"+authResult.code + authResult.access_token);
+
             //    loadCalendarApi();
             } else {
                 console.log("AUth ERROR"+ authResult.error);

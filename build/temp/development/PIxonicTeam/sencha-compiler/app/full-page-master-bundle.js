@@ -1,2 +1,2 @@
 // @tag full-page
-// @require /Users/ifsogirl/Pix-Architect/PIxArchitect/app.js
+// @require C:\Users\Roman\Documents\pixteam\app.js

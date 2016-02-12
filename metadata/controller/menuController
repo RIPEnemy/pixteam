@@ -1,0 +1,31 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "menuController"
+    },
+    "name": "MyController",
+    "designerId": "db64656a-2f2f-402b-b8ed-c424d3229159",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "[action=menuOpen]",
+                "designer|targetType": "Ext.Button",
+                "fn": "onButtonTap",
+                "name": "menuOpen"
+            },
+            "name": "onButtonTap",
+            "designerId": "edbc37b6-0553-448b-939e-17e3a01c7a31"
+        }
+    ]
+}
